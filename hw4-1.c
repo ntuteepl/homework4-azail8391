@@ -1,48 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
-main() {
-bool isPrime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    if (num <= 3) {
-        return true;
-    }
-    if (num % 2 == 0 || num % 3 == 0) {
-        return false;
+int main()
+{
+    int count;
+
+    scanf("%d", &count);
+
+    int inputs[count];
+
+    for(int i = 0; i < count ; i++){
+        scanf("%d", &inputs[i]);
     }
 
-    for (int i = 5; i * i <= num; i += 6) {
-        if (num % i == 0 || num % (i + 2) == 0) {
-            return false;
+    for(int k = 0; k < count ; k++){
+        int test = inputs[k];
+        bool printed = false;
+
+        for(int j = 2; j < test ;j++ ){
+            if(test % j == 0){
+                printf("NO ");
+                printed = true;
+                break;
+            }
         }
-        else {
-             return true;
-        }
+
+        if(!printed) printf("YES ");
     }
-
-
-}
-
-
-    int n;
-
-    scanf("%d", &n);
-
-    for (int i = 0; i < n; i++) {
-        int num;
-        scanf("%d", &num);
-
-        if (isPrime(num)) {
-            printf("YES\n");
-        } else {
-            printf("NO\n");
-        }
-    }
-
-    return 0;
-}
-
     return 0;
 }
